@@ -17,13 +17,24 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
+            <router-link :to="{ name: 'home', meta: {isAdmin: false} }" class="nav-link">Home</router-link>
+<!--            <a class="nav-link" href="#" @click="$emit('setPage', 'home')">Home</a>-->
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <router-link :to="{ name: 'about' }" class="nav-link">About</router-link>
+<!--            <a class="nav-link" href="#" @click="$emit('setPage', 'about')">About</a>-->
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Sample Post</a>
+            <router-link :to="{ name: 'post', params: { postId: 12, commentId: 'com_123' } }" class="nav-link">
+              Sample Post 12
+            </router-link>
+<!--            <a class="nav-link" href="#">Sample Post</a>-->
+          </li>
+          <li class="nav-item">
+            <router-link :to="{ name: 'post', params: { postId: 14, commentId: 'sdfgasdf' } }" class="nav-link">
+              Sample Post 14
+            </router-link>
+<!--            <a class="nav-link" href="#">Sample Post</a>-->
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Contact</a>
@@ -34,7 +45,13 @@
   </nav>
 </template>
 
-<style lang="scss" scoped></style>
+<style scoped>
+nav.navbar {
+  position: fixed !important;
+  top: 0 !important;
+  background: #222 !important;
+}
+</style>
 
 <script>
 export default {};

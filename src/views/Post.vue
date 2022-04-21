@@ -3,6 +3,7 @@
     <template #header>
       <PageHeader bg-image="/img/post-bg.jpg">
         <template #header>
+          #{{route.params.postId}}<br>
           Man must explore, and this is exploration at its greatest
         </template>
         <template #subheader>
@@ -133,4 +134,18 @@
 <script setup>
 import PageTemplate from "./general/PageTemplate.vue";
 import PageHeader from "./general/PageHeader.vue";
+import { useRoute } from 'vue-router';
+import { onMounted, watch } from 'vue';
+
+const route = useRoute()
+console.log(route.params)
+const props = defineProps(['postId', 'commentId', 'title'])
+
+onMounted(() => {
+  console.log('mounted:', props.postId, props.commentId)
+})
+
+watch(route, (newRoute)=>{
+  console.log('mounted:', props.postId)
+})
 </script>

@@ -1,7 +1,7 @@
 <template>
   <PageTemplate>
     <template #header>
-      <PageHeader bg-image="/img/about-bg.jpg">
+      <PageHeader bg-image="/img/about-bg.jpg" @click="goHome()">
         <template #header> About Me </template>
         <template #subheader> This is what I do. </template>
       </PageHeader>
@@ -39,4 +39,21 @@
 <script setup>
 import PageTemplate from "./general/PageTemplate.vue";
 import PageHeader from "./general/PageHeader.vue";
+import { useRoute, useRouter } from 'vue-router';
+
+const router = useRouter()
+const route = useRoute()
+
+console.log(route)
+
+function goHome() {
+  router.push({name: 'home', meta: {isAdmin: false}})
+}
+</script>
+
+<script>
+export default {
+  name: 'about',
+  markRaw: true,
+}
 </script>
