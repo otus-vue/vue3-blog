@@ -1,8 +1,9 @@
 <template>
   <PageTemplate>
     <template #header>
-      <PageHeader bg-image="/img/post-bg.jpg">
+      <PageHeader bg-image="/img/post-bg.jpg" @click="go">
         <template #header>
+          #{{ props.postId }} <br>
           Man must explore, and this is exploration at its greatest
         </template>
         <template #subheader>
@@ -133,4 +134,22 @@
 <script setup>
 import PageTemplate from "./general/PageTemplate.vue";
 import PageHeader from "./general/PageHeader.vue";
+import {useRoute, useRouter} from "vue-router";
+import {onMounted, watch} from "vue";
+
+const route = useRoute()
+const router = useRouter()
+
+const props = defineProps(['postId', 'flag'])
+
+console.log('route', route)
+console.log(`route.query.value`, route.query)
+
+function go() {
+  router.push({ name: 'post', params: { postId: 111 }})
+}
+
+onMounted(() => console.log('mounted - postId', props.postId))
+
+watch(route, () => console.log('watch - postId', props.postId))
 </script>

@@ -17,13 +17,15 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
+<!--            <a class="nav-link" href="#">Home</a>-->
+            <router-link class="nav-link" :to="{ name: 'home' }">Home</router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+<!--            <a class="nav-link" href="#">About</a>-->
+            <router-link class="nav-link" :to="{ name: 'about' }">About</router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Sample Post</a>
+            <router-link class="nav-link" :to="{ name: 'post', params: { postId: 15 } }">Sample Post</router-link>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Contact</a>
@@ -34,7 +36,13 @@
   </nav>
 </template>
 
-<style lang="scss" scoped></style>
+<style scoped>
+nav {
+  position: fixed!important;;
+  top:0!important;;
+  background: #222!important;
+}
+</style>
 
 <script>
 export default {};

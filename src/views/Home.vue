@@ -1,7 +1,8 @@
 <template>
   <PageTemplate>
     <template #header>
-      <PageHeader bg-image="/img/home-bg.jpg">
+      <router-view></router-view>
+      <PageHeader bg-image="/img/home-bg.jpg" @click="goToAbout()">
         <template #header> Clean Blog </template>
         <template #subheader> A Blog Theme by Start Bootstrap </template>
       </PageHeader>
@@ -89,4 +90,14 @@
 <script setup>
 import PageTemplate from "./general/PageTemplate.vue";
 import PageHeader from "./general/PageHeader.vue";
+import {useRoute, useRouter} from "vue-router";
+
+const router = useRouter()
+const route = useRoute()
+
+console.log(route);
+
+function goToAbout() {
+  router.push({ name: 'about' })
+}
 </script>
