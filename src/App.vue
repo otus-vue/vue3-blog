@@ -1,9 +1,10 @@
 <template>
-  <Navigation></Navigation>
-  <Home></Home>
+  <Navigation @set-page="setPage"></Navigation>
+  <router-view></router-view>
+
+  <footer></footer>
 </template>
 
 <script setup>
 import Navigation from "./views/general/Navigation.vue";
-import Home from "./views/Home.vue";
 </script>

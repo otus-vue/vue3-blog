@@ -89,4 +89,13 @@
 <script setup>
 import PageTemplate from "./general/PageTemplate.vue";
 import PageHeader from "./general/PageHeader.vue";
+import {useRoute, useRouter} from "vue-router";
+
+const router = useRouter()
+
+const route = useRoute()
+
+console.log(`route`, route)
+
+router.currentRoute
 </script>
