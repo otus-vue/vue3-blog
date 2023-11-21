@@ -1,12 +1,16 @@
 <template>
   <PageTemplate>
     <template #header>
-      <PageHeader bg-image="/img/post-bg.jpg">
+      <PageHeader bg-image=""
+                  @click="this.$router.push({ name: 'post', params: {postId: 987} })">
         <template #header>
+          #{{ postId }}<br>
           Man must explore, and this is exploration at its greatest
         </template>
         <template #subheader>
           Problems look mighty small from 150 miles up
+
+          <router-view></router-view>
         </template>
       </PageHeader>
     </template>
@@ -95,7 +99,7 @@
               </p>
 
               <a href="#">
-                <img class="img-fluid" src="img/post-sample-image.jpg" alt="" />
+
               </a>
               <span class="caption text-muted"
                 >To go places and do things that have never been done before –
@@ -133,4 +137,8 @@
 <script setup>
 import PageTemplate from "./general/PageTemplate.vue";
 import PageHeader from "./general/PageHeader.vue";
+import {onBeforeRouteUpdate, useRoute, useRouter} from "vue-router";
+import {onBeforeMount, watch} from "vue";
+
+defineProps(['postId'])
 </script>

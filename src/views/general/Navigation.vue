@@ -17,16 +17,18 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
+            <router-link class="nav-link" :to="{ 'name': 'home' }">Home</router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <router-link class="nav-link" :to="{ 'name': 'about' }">About</router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Sample Post</a>
+            <router-link class="nav-link"
+                         :to="{ 'name': 'post', params: { postId: 123 } }">Sample Post</router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="#"
+               @click="$emit('set-page', 'contact')">Contact</a>
           </li>
         </ul>
       </div>
@@ -36,6 +38,7 @@
 
 <style lang="scss" scoped></style>
 
-<script>
-export default {};
+<script setup>
+import {useRouter} from "vue-router";
+
 </script>
